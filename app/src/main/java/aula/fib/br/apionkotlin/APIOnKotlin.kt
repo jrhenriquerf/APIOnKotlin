@@ -26,7 +26,7 @@ class APIOnKotlin : AppCompatActivity() {
         displayMessage.show() //Mostra a distração
 
         doAsync{ //Faz a busca asycronamente
-            var movies = Util.parse("$URL_SERVIDOR/?apikey=$API_KEY&type=movie&r=json&s=brazil&page=1") // Consulta os filmes e retorna uma lista com os títulos
+            var movies = Util.parse(" http://www.omdbapi.com/?i=tt3896198&apikey=7e231a5e&type=movie&r=json&s=brazil&page=1") // Consulta os filmes e retorna uma lista com os títulos
 
             uiThread{ //
                 movies.let { // só continuará se o let verificar que o movies não esta nullo, se não estiver, entra no bloco abaixo
