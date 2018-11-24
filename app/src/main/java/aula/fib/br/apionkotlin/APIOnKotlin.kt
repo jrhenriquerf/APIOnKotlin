@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter
 import android.widget.ListView
+import aula.fib.br.apionkotlin.adapters.MovieAdapter
 import aula.fib.br.apionkotlin.utils.Constants.API_KEY
 import aula.fib.br.apionkotlin.utils.Constants.URL_SERVIDOR
 import aula.fib.br.apionkotlin.utils.Util
 import org.jetbrains.anko.*
+
 
 class APIOnKotlin : AppCompatActivity() {
 
@@ -30,8 +32,9 @@ class APIOnKotlin : AppCompatActivity() {
 
             uiThread{ //
                 movies.let { // só continuará se o let verificar que o movies não esta nullo, se não estiver, entra no bloco abaixo
-                    val adapter = ArrayAdapter(applicationContext, android.R.layout.simple_list_item_1, movies) //Cria um Adapter para a lista
-                    var lista = findViewById(R.id.movies) as ListView
+                    //val adapter = ArrayAdapter(baseContext, android.R.layout.simple_list_item_1, movies) //Cria um Adapter para a lista]
+                    val adapter = MovieAdapter(baseContext, movies!!) //Cria um Adapter para a lista
+                    var lista = findViewById<ListView>(R.id.movies)
                     lista.adapter = adapter //Seta o adapter na lista
                 }
             }
